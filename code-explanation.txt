@@ -1,0 +1,14 @@
+chefs-hat code:
+    -Parent <div> styles:
+    -width and height: Define the size of the circle in pixels. Both should be the same.
+    -border-radius: 50%;: Creates a circular container.
+    -overflow: hidden;: Ensures the image is clipped to the circle.
+    -display: flex; justify-content: center; align-items: center;: Centers the image within the circle.
+    -Child <img> styles:
+    -width: 100%; height: 100%;: Makes the image fill the circle.
+    -object-fit: cover;: Ensures the image maintains its aspect ratio while covering the circle.
+    ->to adjust the radius of the circle adjust the width and height. Note; they have to be the same value pixels
+
+Centering items:
+    display: grid;: Activates Grid layout for the parent container.
+    place-items: center;: Centers the circle both horizontally and vertically.

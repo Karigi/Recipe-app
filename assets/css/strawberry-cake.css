@@ -1,0 +1,36 @@
+.strawberry-cream-cheesecake-wrapper{
+    display: flex; /* Activates Flexbox layout */
+    justify-content: space-between; /* Ensures space is distributed between items */
+    align-items: center; /* Aligns items vertically at the center */
+    position: relative; /* Allows precise positioning of the center item */
+}
+
+#strawberry-cream-cheesecake-heading{
+    position: absolute; /* Removes the center item from the flow */
+    left: 50%; /* Positions the center item in the middle of the container */
+    transform: translateX(-50%); /* Centers the center item exactly */
+    color: red;
+}
+
+#home-page-button{
+    margin-right: auto; /* Pushes the left item to the start of the container */
+
+}
+
+#strawberry-cream-cheesecake{
+    width: 100%; /*width and height: Define the size of the container in pixels. Both should be the same.*/
+    height: 300px; 
+    overflow: hidden; /*Ensures the image is clipped to the container*/
+    display: flex; /*display: flex; justify-content: center; align-items: center;: Centers the image within the container.*/
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#img-strawcheese{
+
+    width: 100%; /*Makes the image fill the container*/
+    height: 100%;
+    object-fit: cover; /*Ensures the image maintains its aspect ratio while covering the container.*/
+
+}

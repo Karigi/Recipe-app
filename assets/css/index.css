@@ -1,0 +1,102 @@
+
+#chefs-hat{ /*Go to code-explanations.txt under chefs-hats code*/
+    width: 150px; /*width and height: Define the size of the circle in pixels. Both should be the same.*/
+    height: 150px; 
+    border-radius: 50%; /*Creates a circular container.*/
+    overflow: hidden; /*Ensures the image is clipped to the circle*/
+    display: flex; /*display: flex; justify-content: center; align-items: center;: Centers the image within the circle.*/
+    justify-content: center;
+    align-items: center;
+}
+
+/*centering items*/
+.center-items{
+    display: grid; /*Activates Grid layout for the parent container.*/
+    place-items: center; /*Centers the circle both horizontally and vertically.*/
+}
+
+#chefs-hat img{ /*Go to code-explanations.txt under chefs-hats code*/
+    width: 100%; /*Makes the image fill the circle*/
+    height: 100%;
+    object-fit: cover; /*Ensures the image maintains its aspect ratio while covering the circle.*/
+}
+
+.search-container {
+    display: flex; /*Activates Flexbox for the container, aligning the child elements (the form) in a row.*/
+    justify-content: center; /*Centers the form horizontally within the container.*/
+    margin: 10px; /*Adds spacing around the container for layout breathing room.*/
+  }
+
+  .search-bar {
+    width: 500px;
+    height: 30px;
+    flex: 1; /*Allows the input to take up as much space as possible within the Flexbox container, ensuring it adapts well to different screen sizes.*/
+    padding: 10px; /*Adds internal spacing for better readability and usability.*/
+    border: 1px solid rgb(26, 94, 172); /*adds light grey borders to the search container*/
+    outline: none; /*Removes the default browser outline when the input is focused.*/
+    font-size: 16px; /*font size*/
+
+  }
+
+
+
+.food-container{ /*container for holding the image and text*/
+    width: 250px; /*set width*/
+    height: 250px; /* Set the height */
+    background-color: rgb(240, 201, 94); /* Light gray background */
+    border: 1px solid rgb(26, 94, 172); /* Optional: border around the rectangle */
+    margin: 10px 20px 20px 20px; /* Center the rectangle horizontally with top and bottom margin */
+    padding: 5px; /* Optional: internal padding for content */
+    text-align: center; /* Optional: center-align text inside the rectangle */
+    font-family: Arial, sans-serif; /* Optional: font style */
+    overflow: hidden;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column; /*stacking elements vertically*/
+}
+
+.food-pic-img{ /*for image*/
+    width: 100%; /* Image spans the width of the container */
+    height: 60%; /* Take 60% of the container height */
+    object-fit: cover; /* Ensure the image scales without distortion */
+}
+
+.container-text{
+
+    width: 100%;
+    height: 30%;
+    color: rgb(26, 94, 172);
+    margin: 10px;
+    font-size: 16px;
+
+}
+
+.read-more-button{
+    height: 10%;
+    width: 100%;
+    padding: 10px;
+    color: rgb(172, 26, 26);
+    border-color: rgb(26, 94, 172);
+    background-color: rgb(240, 201, 94); 
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
+
+.read-more-button:hover {
+    background-color: rgb(26, 94, 172);
+    color: white;
+}
+
+.food-container-wrapper {
+    display: flex; /* Flexbox for arranging containers side by side */
+    flex-wrap: wrap; /* Allow wrapping to next row if space is insufficient */
+    gap: 20px; /* Add spacing between containers */
+    justify-content: flex-start; /* Center the containers within the wrapper */
+    padding: 20px; /* Optional: padding around the wrapper */
+    box-sizing: border-box; /* Include padding in width calculations */
+  }
+
+  

@@ -1,0 +1,12 @@
+divs - <div></div> organizes work into different sections
+classes- defined using a period ie .class_name
+ids- defined using hashtag ie #id_name
+navigation to other pages within your application - use anchor tag 
+ <a href"path"></a>
+display - flex, flex-box, grid
+display: flex; -> responsiveness, for it to be seen in different devices eg
+ large desktops, phones etc
+ By default flex direction is row
+ Bootstrap - a css framework - to use less css code
+ How to use bootstrap:
+    -add link from bootstrap
