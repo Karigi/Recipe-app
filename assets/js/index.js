@@ -28,7 +28,6 @@ const cardsData =[
         ],
         //description: 'Click read more button to get the recipe',
         //link: 'strawberry-cake.html'
-        fallbackLink: 'strawberry-cake.html'
     },
     {   
         id:2,
@@ -60,7 +59,6 @@ const cardsData =[
         ],
         //description: 'Click read more button to get the recipe',
         //link: '#'
-        fallbackLink: 'chocolate-cake.html'
     },
     {
         id:3,
@@ -95,7 +93,6 @@ const cardsData =[
         ],
         //description: 'Click read more button to get the recipe',
         //link: '#'
-        fallbackLink: 'strw-oreo-cake.html'
     },
     {
         id:4,
@@ -140,7 +137,6 @@ const cardsData =[
         ],
         //description: 'Click read more button to get the recipe',
         //link: '#'
-        fallbackLink: 'mixed-fruit-cake.html'
     },
 ];
 
@@ -157,50 +153,9 @@ for (let i = 0; i < cardsData.length; i++){
             <div class="card-body">
                 <h5 class="card-title">${card.title}</h5>
                 <!--<p class="card-text">${card.description}</p>-->
-                <a href="#" class="btn btn-primary" data-id="${card.id}">Read more</a>
+                <a href="#" class="btn btn-primary">Read more</a>
             </div>
         </div>`;
         //insert cardHTML into the container
         container.innerHTML += cardHTML;
 }
-
-//Modal Elements References
-const modal = document.getElementById("recipeModal"); // Access the modal container
-const closeModalBtn = document.getElementById("closeModal"); // Access the close button in the modal
-const modalTitle = document.getElementById("recipeModalTitle"); // Access the modal's title area
-const modalImage = document.getElementById("modalImage"); // Access the modal's image area
-const modalIngredients = document.getElementById("modalIngredients"); // Access the modal's ingredient list
-const modalPreparation = document.getElementById("modalPreparation"); // Access the modal's preparation list
-const fallbackLink = document.getElementById("fallbackLink"); // Access the fallback link for detailed page
-
-// Event Listener to Open Modal on Button Click
-document.addEventListener("click", (event) => { // Event listener for click events on the document
-    if (event.target.classList.contains("btn-primary")) { // Check if the clicked element is the "Read More" button
-      const recipeId = event.target.getAttribute("data-id"); // Get the recipe ID from the clicked button
-      const recipe = cardsData.find((card) => card.id == recipeId); // Find the recipe object based on the ID
-  
-      // Populate Modal Content
-      modalTitle.innerText = recipe.title; // Set the recipe title in the modal
-      modalImage.src = recipe.imgSrc; // Set the image source in the modal
-      modalImage.alt = recipe.altText; //set the modal's image alt text
-      
-      //populate preperation steps as an unordered list
-      modalIngredients.innerHTML = `<ul>` + recipe.recipeIngredients // Generate HTML for the ingredients list
-        .map((item) => `<li>${item}</li>`) // Create list items for each ingredient
-        .join("") + `<ul>`; // Join the list items into a single string and wraps them in an unordered list
-      
-        //populate preperation steps as an ordered list
-        modalPreparation.innerHTML = `<ol>` + recipe.recipePreparation // Generate HTML for the preparation steps
-        .map((step) => `<li>${step}</li>`) // Create list items for each preparation step
-        .join("") + `<ol>`; // Join the list items into a single string and wraps them in an ordered list
-      
-        fallbackLink.href = recipe.fallbackLink; // Set the fallback link for the detailed recipe page
-  
-      modal.style.display = "flex"; // Show the modal by changing its display style to 'flex'
-    }
-  });
-
-// Event listener to close the modal when the close button is clicked
-closeModalBtn.addEventListener("click", () => {
-    modal.style.display = "none"; // Hide the modal by setting its CSS display to 'none'
-  });
