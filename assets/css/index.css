@@ -1,12 +1,15 @@
 
 #chefs-hat{ /*Go to code-explanations.txt under chefs-hats code*/
-    width: 150px; /*width and height: Define the size of the circle in pixels. Both should be the same.*/
-    height: 150px; 
+    width: 100px; /*width and height: Define the size of the circle in pixels. Both should be the same.*/
+    height: 100px; 
     border-radius: 50%; /*Creates a circular container.*/
     overflow: hidden; /*Ensures the image is clipped to the circle*/
     display: flex; /*display: flex; justify-content: center; align-items: center;: Centers the image within the circle.*/
     justify-content: center;
     align-items: center;
+    border:1px solid black ;
+    margin-top: 7px;
+
 }
 
 /*centering items*/
@@ -32,7 +35,7 @@
     height: 30px;
     flex: 1; /*Allows the input to take up as much space as possible within the Flexbox container, ensuring it adapts well to different screen sizes.*/
     padding: 10px; /*Adds internal spacing for better readability and usability.*/
-    border: 1px solid rgb(26, 94, 172); /*adds light grey borders to the search container*/
+    border: 2px solid black; /*adds light grey borders to the search container*/
     outline: none; /*Removes the default browser outline when the input is focused.*/
     font-size: 16px; /*font size*/
 
@@ -97,6 +100,103 @@
     justify-content: flex-start; /* Center the containers within the wrapper */
     padding: 20px; /* Optional: padding around the wrapper */
     box-sizing: border-box; /* Include padding in width calculations */
+}
+
+.card{
+    flex: 1 1 calc(200px);       /* Minimum width of 200px, flexible growth */
+    max-width: calc(25% - 20px); /* Prevents stretching beyond this width */
+    box-sizing: border-box;      /* Include padding and borders in width */
+}
+
+.card img{
+    height: 50%;
+    object-fit: cover;   
+}
+
+.card h5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.card a{
+    background-color: rgb(230, 104, 20);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling for the modal overlay */
+.custom-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /*fixed position to cover the screen*/
+    top: 0; /*start from the top*/
+    left: 0; /*start from the left*/
+    width: 100%; /*full screen width*/
+    height: 100%; /*full screen height*/
+    background-color: rgba(243, 243, 243, 0.5); /* Semi-transparent background */
+    justify-content: center; /*center modal horizontally*/
+    align-items: center;/*center modal vertically*/
+}
+
+/* Modal content container */
+.modal-content {
+    background-color: white; /* White background for readability */
+    padding: 20px; /* Inner spacing */
+    border-radius: 10px; /* Rounded corners */
+    max-width: 800px; /* Maximum width for the modal */
+    width: 90%; /* Responsive width */
+    position: relative; /* Enables positioning of close button */
+    display: flex; /* Creates a flex container */
+    gap: 20px; /* Space between columns */
+}
+
+  /* Close button styling */
+.close {
+    position: absolute; /* Position relative to the modal */
+    top: 10px; /* 10px from the top */
+    right: 10px; /* 10px from the right */
+    font-size: 24px; /* Large size for visibility */
+    cursor: pointer; /* Pointer cursor on hover */
   }
 
-  
+  /* Modal image placed on the left */
+.modal-image {
+    width: 40%; /* 40% width for the image */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    object-fit: cover; /* Keeps the image well-proportioned */
+  }
+
+.modal-text {
+    width: 60%; /* Remaining space for the text */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    gap: 10px; /* Space between sections */
+  }
+
+  /* Heading styles */
+.modal-text h3 {
+    color: black; /* Blue heading color */
+    margin-bottom: 10px; /* Space below headings */
+  }
+
+  /* Ingredient and preparation lists */
+.modal-text ul, .modal-text ol {
+    margin-left: 20px; /* Indents the list */
+    line-height: 1.6; /* Better text readability */
+  }
+
+  /* Link button for fallback */
+.btn-link {
+    display: inline-block; /* Behaves like a button */
+    margin-top: 15px; /* Space above the link */
+    padding: 10px 20px; /* Padding for better click area */
+    background-color: #004d99; /* Blue background */
+    color: white; /* White text for contrast */
+    text-decoration: none; /* Removes underline from link */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Centers the link text */
+  }
