@@ -140,22 +140,57 @@ const cardsData =[
     },
 ];
 
-//Target the container where cards will be added
+// Target the container where cards will be added
 const container = document.getElementById('card-container');
 
-//Generate the cards dynamically
-for (let i = 0; i < cardsData.length; i++){
-    const card = cardsData[i];
-    //create card html
+// Generate the cards dynamically
+cardsData.forEach(card => {
+    // Create card HTML
     const cardHTML = `
-            <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem;">
             <img src="${card.imgSrc}" class="card-img-top" alt="${card.altText}">
             <div class="card-body">
                 <h5 class="card-title">${card.title}</h5>
-                <!--<p class="card-text">${card.description}</p>-->
-                <a href="#" class="btn btn-primary">Read more</a>
+                <a href="#" class="btn btn-primary" data-modal="${card.id}">Read more</a>
             </div>
         </div>`;
-        //insert cardHTML into the container
-        container.innerHTML += cardHTML;
-}
+    container.innerHTML += cardHTML;
+
+    // Create Modal
+    const modal = document.createElement('div');
+    modal.id = `modal-${card.id}`;
+    modal.className = 'modal';
+
+    // Modal Content
+    const modalContent = `
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>${card.title}</h2>
+            <img src="${card.imgSrc}" alt="${card.altText}">
+            <h3>Ingredients:</h3>
+            <ul>${card.recipeIngredients.map(item => `<li>${item}</li>`).join('')}</ul>
+            <h3>Preparation:</h3>
+            <ol>${card.recipePreparation.map(step => `<li>${step}</li>`).join('')}</ol>
+        </div>`;
+    modal.innerHTML = modalContent;
+    container.appendChild(modal);
+});
+
+// Modal Functionality
+document.addEventListener('click', (event) => {
+    if (event.target.classList.contains('btn-primary')) {
+        const modalId = event.target.getAttribute('data-modal');
+        document.getElementById(`modal-${modalId}`).style.display = 'block';
+    }
+
+    if (event.target.classList.contains('close')) {
+        event.target.closest('.modal').style.display = 'none';
+    }
+});
+
+// Close Modal When Clicking Outside
+window.addEventListener('click', (event) => {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+    }
+});
